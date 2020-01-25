@@ -1,0 +1,10 @@
+1. file_rename.sh - a shell script to rename the files in a numerical order.
+
+2. train_test_split.py was made to split the images in 80:20 ratio. the 
+'train' and 'test' directory was created as a result of this right under the
+root directory from the original 'tomato_disease_dataset' which was deleted after the 
+execution of this script as it was no longer needed.
+
+3. Inception-resnet-v2 model gave 87% validation accuracy after training for 10 epochs.
+(took around 7 hours in colab)
+
