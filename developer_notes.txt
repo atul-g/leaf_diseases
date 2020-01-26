@@ -21,3 +21,9 @@ of the trained model is 222mb. still preferring imagenet model.
 
 8. Trained mobilenet with 0.0001 lr, got a val acc of 82% at 10 epochs.
 
+10. used git lfs to push large files like inception-resnet trained models.
+  for that, I had to first install git-lfs using apt. Then use git install lfs
+  in the working directory.
+  I then had to use a certain command: git lfs migrate import --include="my_tomato_model_inecption-resnet.h5"
+  in order to push as normally pushing gave certain errors.
+  
