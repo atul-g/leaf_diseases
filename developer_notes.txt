@@ -27,3 +27,6 @@ of the trained model is 222mb. still preferring imagenet model.
   I then had to use a certain command: git lfs migrate import --include="my_tomato_model_inecption-resnet.h5"
   in order to push as normally pushing gave certain errors.
   
+11. Trained vgg16 model for 10 epochs, got 86%val acc and only 81% acc. Gonna
+train it for 20 epochs and see if any difference.
+
