@@ -38,4 +38,7 @@ in stackoverflow.
 
 13. Note: loading the trained model using keras.model.load_model yields some 
 error, so I used the cutom_objects parameter while using the same function.
+NOTE: RUNNING THAT SCRIPT REQUIRED INTERNET.
+
+14. Now, my_model.pb is the graph model which we will be using in tf-lite or firebase.
 

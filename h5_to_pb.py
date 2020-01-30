@@ -38,7 +38,7 @@ def freeze_session(session, keep_var_names=None, output_names=None, clear_device
 
 
 #main 
-model=load_model(cwd+"/my_tomato_model_imagenet.h5", custom_objects={'KerasLayer':hub.KerasLayer})
+model=load_model(cwd+"/my_tomato_model_mobilenet.h5", custom_objects={'KerasLayer':hub.KerasLayer})
 
 frozen_graph = freeze_session(K.get_session(),
                               output_names=[out.op.name for out in model.outputs])
