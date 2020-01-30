@@ -11,10 +11,11 @@ execution of this script as it was no longer needed.
 4. trained it again with image augmentations for 7 epochs, got 85% accuracy. Model 
 saved as my_tomato_model.h5 (size 214 mb!). Batch Size was 64
 
-5. Trained with imagenet v2, got 88% accuracy for 64 batch size. size was only
+5. Trained with mobilenet v2, got 88% accuracy for 64 batch size. size was only
 7 MB!
 
 6. Need to check Alexnet or VGGnet for batch size 64 and 32.
+ EDIT: 
 
 7. Trained resnet-v2-152, got 88% validation accuracy with 32% batch size. size 
 of the trained model is 222mb. still preferring imagenet model.
@@ -29,6 +30,7 @@ of the trained model is 222mb. still preferring imagenet model.
   
 11. Trained vgg16 model for 10 epochs, got 86%val acc and only 81% acc. Gonna
 train it for 20 epochs and see if any difference.
+<<<<<<< HEAD
 
 12. In order to upload the model to firebase, we have to first convert h5 model
 to .pb graph - for this we used h5_to_pb.py script which I got from an answer
@@ -36,5 +38,4 @@ in stackoverflow.
 
 13. Note: loading the trained model using keras.model.load_model yields some 
 error, so I used the cutom_objects parameter while using the same function.
-
 
