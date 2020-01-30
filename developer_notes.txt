@@ -30,3 +30,11 @@ of the trained model is 222mb. still preferring imagenet model.
 11. Trained vgg16 model for 10 epochs, got 86%val acc and only 81% acc. Gonna
 train it for 20 epochs and see if any difference.
 
+12. In order to upload the model to firebase, we have to first convert h5 model
+to .pb graph - for this we used h5_to_pb.py script which I got from an answer
+in stackoverflow.
+
+13. Note: loading the trained model using keras.model.load_model yields some 
+error, so I used the cutom_objects parameter while using the same function.
+
+
