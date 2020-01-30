@@ -33,12 +33,15 @@ train it for 20 epochs and see if any difference.
 <<<<<<< HEAD
 
 12. In order to upload the model to firebase, we have to first convert h5 model
-to .pb graph - for this we used h5_to_pb.py script which I got from an answer
-in stackoverflow.
+to .pb graph and then to tflite file - for this we used h5_to_pb.py script which I got from an answer
+in stackoverflow to convert h5 to .pb
 
 13. Note: loading the trained model using keras.model.load_model yields some 
 error, so I used the cutom_objects parameter while using the same function.
 NOTE: RUNNING THAT SCRIPT REQUIRED INTERNET.
 
-14. Now, my_model.pb is the graph model which we will be using in tf-lite or firebase.
+14. UPDATE: So you can directly convert keras models to tflite file using a small script. We also 
+used a small optimization function in it to reduce the size of the model even more. The script used 
+is h5_to_tflite_converter.py and the tflite file generated is "my_trained_mobilenet.tflite".
+Basically you can skip 12 and 13 AND ALSO IGNORE "h5_to_pb.py" SCRIPT AND "saved_model.pb" FILE.
 
