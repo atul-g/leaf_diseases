@@ -55,6 +55,7 @@ from tensorflow.keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2
 from tensorflow.keras import layers
 import tensorflow_hub as hub
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import matplotlib.pyplot as plt
 
 ##### CREATING TEST AND TRAIN IMAGE DATA GENERATORS
 IMG_SIZE=256
@@ -78,7 +79,7 @@ inception-resnet-v2 - (299, 299) or closer: https://tfhub.dev/google/imagenet/in
 '''
 
 model = tf.keras.Sequential([
-    hub.KerasLayer("https://tfhub.dev/google/imagenet/mobilenet_v1_075_192/quantops/feature_vector/3", trainable=False, input_shape=(IMG_SIZE,IMG_SIZE,3)),
+    hub.KerasLayer("https://tfhub.dev/google/imagenet/mobilenet_v1_075_192/quantops/feature_vector/3", trainable=False, input_shape=(192,192,3)),
     tf.keras.layers.Dense(10, activation='softmax')
 ])
 
@@ -89,12 +90,22 @@ model.compile(
 
 model.summary()
 
-EPOCHS = 25
+EPOCHS = 10
 history = model.fit_generator(train_gen,
                     epochs=EPOCHS,
                     validation_data=test_gen)
 
 model.save(cwd+'/my_tomato_model_mobilenet.h5')
+
+
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+
 
 
 '''
