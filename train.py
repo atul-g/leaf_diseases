@@ -58,7 +58,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
 ##### CREATING TEST AND TRAIN IMAGE DATA GENERATORS
-IMG_SIZE=256
+IMG_SIZE=192 #since mobilenet accepts 192*192 only, we need to convert the 256*256 image to the said resolution.
 
 import os
 cwd=os.path.join(os.getcwd(), 'drive/My Drive') ## ALTER THIS ACCORDING TO THE PATH WHERE DATA IS

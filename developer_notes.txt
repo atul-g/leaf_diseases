@@ -15,9 +15,9 @@ saved as my_tomato_model.h5 (size 214 mb!). Batch Size was 64
 7 MB!
 
 6. Need to check Alexnet or VGGnet for batch size 64 and 32.
- EDIT: 
+ EDIT: alexnet is possible only on matplotlib.
 
-7. Trained resnet-v2-152, got 88% validation accuracy with 32% batch size. size 
+7. Trained resnet-v2-152, got 88% validation accuracy with 32 batch size. size 
 of the trained model is 222mb. still preferring imagenet model.
 
 8. Trained mobilenet with 0.0001 lr, got a val acc of 82% at 10 epochs.
@@ -45,3 +45,16 @@ used a small optimization function in it to reduce the size of the model even mo
 is h5_to_tflite_converter.py and the tflite file generated is "my_trained_mobilenet.tflite".
 Basically you can skip 12 and 13 AND ALSO IGNORE "h5_to_pb.py" SCRIPT AND "saved_model.pb" FILE.
 
+
+15. NOW I HAVE TRIED TO ADD MORE LAYERS ON TOP OF THE MOBILENET MODEL, IT SEEMS TO BE TOUCHING A 90%
+VALIDATION ACCURACY WITH ONLY A SMALL INCREASE IN THE MODEL MEMORY SIZE.
+
+ACHIEVED 92% VALIDATION ACCURACY and close to 93% accuracy WITH THIS MODEL- IT HAD AN EXTRA 512, 256 AND 64 UNITS LAYERS AFTER
+THE MOBILENET LAYERS. MODEL IS SAVED AS "my_tomato_model_mobilenet(more_dense).h5"
+
+The size of this model is only 13.5 MB.
+
+14. I ran the h5_to_tflite.py script for the denser model of mobilenet. Saved it as my_trained_mobilenet.tflite
+
+For some reason, I 'm getting error while running h5_to_pb.py file with this new model. So the saved_model.pb
+that you see is actually from the original mobilenet trained model.

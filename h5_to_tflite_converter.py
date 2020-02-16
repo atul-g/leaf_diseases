@@ -5,7 +5,7 @@ import tensorflow_hub as hub
 import os
 cwd=os.getcwd()
 
-model=load_model(cwd+"/my_tomato_model_mobilenet.h5", custom_objects={'KerasLayer':hub.KerasLayer})
+model=load_model(cwd+"/my_tomato_model_mobilenet(more_dense).h5", custom_objects={'KerasLayer':hub.KerasLayer})
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_SIZE] #FOR OPTIMIZING THER SIZE EVEN MORE
 tflite_model = converter.convert()
