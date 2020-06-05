@@ -58,3 +58,17 @@ The size of this model is only 13.5 MB.
 
 For some reason, I 'm getting error while running h5_to_pb.py file with this new model. So the saved_model.pb
 that you see is actually from the original mobilenet trained model.
+
+
+
+################# TRAINING IN A LOCAL GPU ###########################
+1. When you run the model, you will see that tensorflow  usually allocates
+ full available memory of GPU to the model which leads to the model crashing (
+even though the full allocated memory is not used ). So to avoid this, we
+use the lines:
+
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
+This limits the use of GPU memory initially itself and your training doesnt 
+return any error of CUdnn failed etc etc.

@@ -57,11 +57,22 @@ import tensorflow_hub as hub
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
+
+#FOR TRAINING LOCALLY IN A GPU
+
+#tf.config.gpu.set_per_process_memory_fraction(0.85)
+#tf.config.gpu.set_per_process_memory_growth(True)
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
+
+
 ##### CREATING TEST AND TRAIN IMAGE DATA GENERATORS
 IMG_SIZE=192 #since mobilenet accepts 192*192 only, we need to convert the 256*256 image to the said resolution.
 
 import os
-cwd=os.path.join(os.getcwd(), 'drive/My Drive') ## ALTER THIS ACCORDING TO THE PATH WHERE DATA IS
+#cwd=os.path.join(os.getcwd(), 'drive/My Drive') ## ALTER THIS ACCORDING TO THE PATH WHERE DATA IS
+cwd=os.getcwd()   #TRAINING LOCALLY
 
 image_gen_train = ImageDataGenerator(rescale=1./255, horizontal_flip=True, rotation_range=60, width_shift_range=0.2, height_shift_range=0.2, zoom_range=0.2, fill_mode='nearest')
 
